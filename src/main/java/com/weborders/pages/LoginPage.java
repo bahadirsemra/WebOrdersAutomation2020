@@ -1,5 +1,6 @@
 package com.weborders.pages;
 
+import com.weborders.utilities.BrowserUtils;
 import com.weborders.utilities.ConfigurationReader;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -16,6 +17,7 @@ public class LoginPage extends AbstractBasePage {
 
 
     public void login(){
+        BrowserUtils.wait(3);
         String usernameValue = ConfigurationReader.getProperty("username");
         String passwordValue = ConfigurationReader.getProperty("password");
         username.sendKeys(usernameValue);
@@ -23,6 +25,7 @@ public class LoginPage extends AbstractBasePage {
     }
 
     public void login(String usernameValue, String passwordValue){
+        BrowserUtils.wait(3);
         username.sendKeys(usernameValue);
         password.sendKeys(passwordValue, Keys.ENTER);
     }

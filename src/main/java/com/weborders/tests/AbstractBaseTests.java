@@ -6,7 +6,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.weborders.utilities.BrowserUtils;
 import com.weborders.utilities.ConfigurationReader;
 import com.weborders.utilities.Driver;
-import org.graalvm.compiler.asm.sparc.SPARCAssembler;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -18,7 +18,7 @@ import java.io.IOException;
 
 public abstract class AbstractBaseTests {
 
-    protected WebDriver driver = Driver.getDriver();
+    protected WebDriver driver ;
 
     protected static ExtentReports extentReports;
     protected static ExtentHtmlReporter extentHtmlReporter;
@@ -51,6 +51,7 @@ public abstract class AbstractBaseTests {
 
     @BeforeMethod
     public void setup(){
+        driver = Driver.getDriver();
         driver.get(ConfigurationReader.getProperty("url"));
         driver.manage().window().maximize();
     }
